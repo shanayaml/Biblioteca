@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 
 public class Menu {
-	private Alumno alu1=new Alumno("Shanaya", "Ingenieria", 2, "uv");
-	private ArrayList<Alumno> lista_usuarios= new ArrayList<Alumno>(alu1);
+	private static Alumno alu1 =new Alumno("Shanaya", "Ingenieria", 2, "uv");
+	private static ArrayList<Alumno> lista_usuarios= new ArrayList<Alumno>();
 	
 	
 	public static void inicio_sesion(Scanner sc) {
