@@ -25,6 +25,8 @@ public class Menu {
 		System.out.println("--------Crear una cuenta--------");
 		lista_usuarios.add(Alumno.CrearAlumno(sc));
 		
+		System.out.println("------Inicio de sesion-------");
+		
 		while(usuario_verificado==false) {
 			usuario_verificado=introducir_usuario(sc);
 			
@@ -39,7 +41,7 @@ public class Menu {
 	
 	public static boolean introducir_usuario(Scanner sc) {
 		boolean verificado=false;
-		System.out.println("Introduca su usuario:");
+		System.out.println("Introduca su usuario(nombre):");
 		String usuario=sc.next();
 		for(int i=0;i<lista_usuarios.size();i++) {
 			if(usuario.equals(lista_usuarios.get(i).getNombre())) {
