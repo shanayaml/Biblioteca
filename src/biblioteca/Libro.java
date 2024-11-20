@@ -5,16 +5,14 @@ public class Libro {
 	private String titulo;
 	private String autor;
 	private boolean estado; //true=disponible   false=no disponible
-	private Alumno alumno;
 	private String lugar;
 	private int disponibilidad;
 	
-	public Libro(String titulo, String autor, boolean estado, Alumno alumno, String lugar, int disponibilidad) {
+	public Libro(String titulo, String autor, boolean estado, String lugar, int disponibilidad) {
 		
 		this.titulo = titulo;
 		this.autor = autor;
 		this.estado = estado;
-		this.alumno = alumno;
 		this.lugar = lugar;
 		this.disponibilidad=disponibilidad;
 	}
@@ -31,9 +29,6 @@ public class Libro {
 		this.estado=_estado;
 	}
 	
-	public void SetAlumno(Alumno _alumno) {
-		this.alumno=_alumno;
-	}
 	
 	public void setLugar(String _lugar) {
 		this.lugar=_lugar;
@@ -55,9 +50,7 @@ public class Libro {
 		return estado;
 	}
 	
-	public Alumno getAlumno() {
-		return alumno;
-	}
+
 	public String getLugar() {
 		return lugar;
 	}

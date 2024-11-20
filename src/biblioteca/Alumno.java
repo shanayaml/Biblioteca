@@ -1,10 +1,10 @@
 package biblioteca;
-
 import java.util.ArrayList;
 
 public class Alumno {
 	
 	private String nombre;
+	private String contrasena;
 	private String carrera;
 	private int curso;
 	private String universidad;
@@ -12,9 +12,10 @@ public class Alumno {
 	
 	
 	
-	public Alumno(String nombre, String carrera, int curso, String universidad) {
+	public Alumno(String nombre, String contrasena, String carrera, int curso, String universidad) {
 		
 		this.nombre = nombre;
+		this.contrasena=contrasena;
 		this.carrera = carrera;
 		this.curso = curso;
 		this.universidad = universidad;
@@ -36,7 +37,10 @@ public class Alumno {
 	public int getCurso() {
 		return curso;
 	}
-	
+	public String getContrasena() {
+		return contrasena;
+	}
+
 	
 	public void setCurso(int curso) {
 		this.curso = curso;
@@ -52,6 +56,9 @@ public class Alumno {
 	}
 	public void setLibros_prestados(ArrayList<Libro> libros_prestados) {
 		this.libros_prestados = libros_prestados;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	
 }

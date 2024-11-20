@@ -49,7 +49,7 @@ public class Biblioteca {
 		else 
 			estado2=true;
 		
-		Alumno alumno =Nuevo_alumno(sc);
+		
 		
 		System.out.println("Introduce el lugar en el que se encuentra");
 		String lugar=sc.next();
@@ -57,34 +57,12 @@ public class Biblioteca {
 		System.out.println("Introduce cuantos dias quedan para que este disponible el libro: ");
 		int disponibilidad=sc.nextInt();
 		
-		Libro libro1=new Libro (titulo, autor,estado2,alumno,lugar,disponibilidad);
+		Libro libro1=new Libro (titulo, autor,estado2,lugar,disponibilidad);
 		biblioteca.add(libro1);
 		
 		System.out.println("El nuevo libro ha sido creado");
 	}
 	
 	
-	public static Alumno Nuevo_alumno(Scanner sc) {
-		
-		System.out.println("Introduce el nombre del alumno que tiene el libro: ");
-		String alumno=sc.next();
-		
-		System.out.println("Introduce que carrera estudia: ");
-		String carrera=sc.next();
-		
-		System.out.println("Introduce en que curso esta: ");
-		int curso=sc.nextInt();
-		
-		System.out.println("Introduce el nombre de la universidad: ");
-		String universidad=sc.next();
-		
-		
-		ArrayList <Libro>libros=new ArrayList <Libro>();
-		
-		
-		Alumno alumno1 =new Alumno(alumno,carrera,curso,universidad,libros);
-		
-		
-		return alumno1;
-	}
+	
 }
