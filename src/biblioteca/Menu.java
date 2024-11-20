@@ -19,11 +19,11 @@ public class Menu {
 	}
 	
 	public static boolean inicio_sesion(Scanner sc) {
-		llenar_lista(new Alumno("Shanaya", "123","Ingenieria", 2, "uv"));
-		llenar_lista(new Alumno("Lucia", "456","Medicina", 3, "ucm"));
 		
 		boolean usuario_verificado=false;
 		boolean verificado=false;
+		System.out.println("--------Crear una cuenta--------");
+		lista_usuarios.add(Alumno.CrearAlumno(sc));
 		
 		while(usuario_verificado==false) {
 			usuario_verificado=introducir_usuario(sc);

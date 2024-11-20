@@ -1,5 +1,6 @@
 package biblioteca;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Alumno {
 	
@@ -21,6 +22,22 @@ public class Alumno {
 		this.universidad = universidad;
 	}
 	
+	public static Alumno CrearAlumno(Scanner sc) {
+		System.out.println("Introduzca su nombre:");
+		String nombre=sc.next();
+		System.out.println("Introduzca su contraseña:");
+		String contrasena=sc.next();
+		System.out.println("Introduzca su carrera:");
+		String carrera=sc.next();
+		System.out.println("Introduzca su curso:");
+		int curso=sc.nextInt();
+		System.out.println("Introduzca su universidad:");
+		String uni=sc.next();
+		
+		Alumno alu1=new Alumno(nombre,contrasena,carrera,curso,uni);
+		
+		return alu1;
+	}
 	
 	public String getNombre() {
 		return nombre;
