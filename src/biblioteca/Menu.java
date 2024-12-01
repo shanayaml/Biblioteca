@@ -8,11 +8,39 @@ public class Menu {
 	
 	public static void programa(Scanner sc) {
 		while (true) {
-			if(Menu.inicio_sesion(sc)) 
-				Menu.Menu_principal(sc);
+			System.out.println("¿Quieres entrar como administrador o como alumno?");
+			String respuesta=sc.next();
+			if(respuesta.equals("administrador")) {
+				inicio_administrador(sc);
+			}
+			else if(respuesta.equals("alumno")) {
+				if(Menu.inicio_sesion(sc)) 
+				Menu.Menu_principal_alumno(sc);
+			}
+			
 		}
 		
 	}
+	
+	public static void inicio_administrador(Scanner sc) {
+		boolean verificado=false;
+		System.out.println("Introduzca el usuario: ");//administrador
+		String usuario=sc.next();
+		if(usuario.equals("administrador")) {
+			System.out.println("Introduca la clave de acceso:");//biblioteca2024
+			String clave=sc.next();
+			if(clave.equals("biblioteca2024")) {
+				verificado=true;
+			}
+			else
+				System.out.println("Clave incorrecta");
+		}
+		if(verificado==true) {
+			Menu_principal_administrador(sc);
+		}
+		
+	}
+	
 	
 	public static void llenar_lista(Alumno alumno_nuevo) {
 		lista_usuarios.add(alumno_nuevo);
@@ -64,47 +92,100 @@ public class Menu {
 	}
 	
 	
-	public static void Menu_principal(Scanner sc) {
-		boolean ok=true;
-		while(ok) {
-			System.out.println("Elija la opcion que desee:");
-			System.out.println("1. Ver lista de libros");
-			System.out.println("2.Buscar un libro");
-			System.out.println("3. Añadir un libro a la biblioteca");
-			System.out.println("4.Cerrar sesion");
-			int opc=sc.nextInt();
-			switch(opc) {
-				case 1:
-					Biblioteca.printBiblioteca();
-					break;
-					
-				case 2:
-					Biblioteca.buscar(sc);
-					break;
-					
-				case 3:
-					Biblioteca.Añadir_libro(sc);
-					break;
-				
-				case 4:
-					ok=false;
-					break;
-					
-				default: break;
-				
-		}
-			
-		if(ok) {
-			System.out.println("¿Desea continuar?");
-			String respuesta=sc.next();
-			if(respuesta.equals("no")){
-				ok=false;
-		}
-		
-		}
-		
-		}
+	public static void Menu_principal_administrador(Scanner sc) {
+	    boolean ok = true;
+	    while (ok) {
+	        System.out.println("Elija la opción que desee:");
+	        System.out.println("1. Ver lista de libros");
+	        System.out.println("2. Buscar un libro");
+	        System.out.println("3. Añadir un libro a la biblioteca");
+	        System.out.println("4. Cerrar sesión");
+
+	        int opc = sc.nextInt();
+	        sc.nextLine(); 
+
+	        switch (opc) {
+	            case 1:
+	                Biblioteca.printBiblioteca();
+	                break;
+
+	            case 2:
+	                Biblioteca.buscar(sc);
+	                break;
+
+	            case 3:
+	                Biblioteca.Añadir_libro(sc);
+	                break;
+
+	            case 4:
+	                ok = false;
+	                break;
+
+	            default:
+	                System.out.println("Opción no válida, por favor intente de nuevo.");
+	                break;
+	        }
+
+	        
+	        if (ok) {
+	            System.out.println("¿Desea continuar? (si/no)");
+	            String respuesta = sc.next();
+	            if (respuesta.equals("no")) {
+	                ok = false;
+	            }
+	        }
+	    }
+	        
+	    }
+	    
+	    public static void Menu_principal_alumno(Scanner sc) {
+		    boolean ok = true;
+		    while (ok) {
+		        System.out.println("Elija la opción que desee:");
+		        System.out.println("1. Ver lista de libros");
+		        System.out.println("2. Buscar un libro");
+		        System.out.println("3. Retirar un libro");
+		        System.out.println("4. Cerrar sesión");
+
+		        int opc = sc.nextInt();
+		        sc.nextLine(); 
+
+		        switch (opc) {
+		            case 1:
+		                Biblioteca.printBiblioteca();
+		                break;
+
+		            case 2:
+		                Biblioteca.buscar(sc);
+		                break;
+
+		            case 3:
+		                Biblioteca.Retirar_libro(sc);
+		                break;
+
+		            case 4:
+		                ok = false;
+		                break;
+
+		            default:
+		                System.out.println("Opción no válida, por favor intente de nuevo.");
+		                break;
+		        }
+
+		        
+		        if (ok) {
+		            System.out.println("¿Desea continuar? (si/no)");
+		            String respuesta = sc.next();
+		            if (respuesta.equals("no")) {
+		                ok = false;
+		            }
+		        }
+		    }
 	}
+
+		
+		
+	
 	
 	
 }
