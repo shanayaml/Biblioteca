@@ -50,8 +50,13 @@ public class Menu {
 		
 		boolean usuario_verificado=false;
 		boolean verificado=false;
-		System.out.println("--------Crear una cuenta--------");
-		lista_usuarios.add(Alumno.CrearAlumno(sc));
+		System.out.println("¿Tienes una cuenta creada?");
+		String res=sc.next();
+		if(res.equals("no")) {
+			System.out.println("--------Crear una cuenta--------");
+			lista_usuarios.add(Alumno.CrearAlumno(sc));
+		}
+		
 		
 		System.out.println("------Inicio de sesion-------");
 		
@@ -145,7 +150,8 @@ public class Menu {
 		        System.out.println("1. Ver lista de libros");
 		        System.out.println("2. Buscar un libro");
 		        System.out.println("3. Retirar un libro");
-		        System.out.println("4. Cerrar sesión");
+		        System.out.println("4. Devolver libro");
+		        System.out.println("5. Cerrar sesión");
 
 		        int opc = sc.nextInt();
 		        sc.nextLine(); 
@@ -162,8 +168,11 @@ public class Menu {
 		            case 3:
 		                Biblioteca.Retirar_libro(sc);
 		                break;
-
+		            
 		            case 4:
+		            	Biblioteca.Devolver_libro(sc);
+
+		            case 5:
 		                ok = false;
 		                break;
 

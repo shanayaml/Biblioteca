@@ -7,6 +7,7 @@ public class Libro {
 	private boolean estado; //true=disponible   false=no disponible
 	private String lugar;
 	private int disponibilidad;
+	private String propietario;
 	
 	public Libro(String titulo, String autor, boolean estado, String lugar, int disponibilidad) {
 		
@@ -57,5 +58,13 @@ public class Libro {
 	
 	public int getDisponibilidad() {
 		return disponibilidad;
+	}
+
+	public String getPropietario() {
+		return propietario;
+	}
+
+	public void setPropietario(String propietario) {
+		this.propietario = propietario;
 	}
 }

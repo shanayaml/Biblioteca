@@ -16,22 +16,28 @@ public class Biblioteca {
 		}
 	}
 	
-	public static void buscar(Scanner sc) {
+	public static int buscar(Scanner sc) {
 		System.out.println("Introduce el titulo del libro que quieres buscar: ");
 		String x=sc.nextLine();
 		boolean encontrado=false;
-		for (int i=0;i<biblioteca.size(); i++) {
+		int i;
+		for (i=0;i<biblioteca.size(); i++) {
 			if(biblioteca.get(i).getTitulo().equals(x)) {
 				encontrado=true;
 				break;
 			}
 		}
 		
-		if(encontrado==true )
+		if(encontrado==true ) {
 			System.out.println("El libro ha sido encontrado. ");
+			if(biblioteca.get(i).getEstado()==false) {
+				System.out.println("El libro no esta disponible. Lo tiene "+ biblioteca.get(i).getPropietario()+". Estara disponible en "+biblioteca.get(i).getDisponibilidad()+" dias");
+			}
+		}
 		else
 			System.out.println("No hay resultados para la busqueda");
 		
+		return i;
 }
 
 	
@@ -80,12 +86,38 @@ public class Biblioteca {
 		else if(biblioteca.get(i).getEstado()==true){
 			biblioteca.get(i).SetEstado(false);
 			biblioteca.get(i).setDisponibilidad(7);
+			System.out.println("Introduzca su nombre de usuario: ");
+			String usuario=sc.next();
+			biblioteca.get(i).setPropietario(usuario);
 			System.out.println("El libro ha sido retirado. Tiene 7 dias para devolverlo.");
 		}
 		else if(i>=biblioteca.size()) {
 			System.out.println("No se ha encontrado el libro");
 		}
 		
+	}
+	
+	public static void Devolver_libro(Scanner sc) {
+		
+		System.out.println("Introduce el nombre del libro que desees devolver: ");
+		String libro=sc.nextLine();
+		int i;
+		for (i=0;i<biblioteca.size(); i++) {
+			if(biblioteca.get(i).getTitulo().equals(libro)) {
+				break;
+			}
+		}
+		if(biblioteca.get(i).getEstado()==false) {
+			biblioteca.get(i).SetEstado(true);
+			biblioteca.get(i).setDisponibilidad(0);
+			System.out.println("El libro ha sido devuelto. Ya esta disponible para retirada.");
+		}
+		else if(biblioteca.get(i).getEstado()==true) {
+			System.out.println("El libro esta disponible para retirada. ");
+		}
+		else if(i>=biblioteca.size()) {
+			System.out.println("No se ha encontrado el libro");
+		}
 	}
 	
 }
